@@ -1,6 +1,6 @@
 # AI Task Manager
 
-Un task manager Kanban potenziato da un assistente AI locale. Gestisci progetti e attività, monitora scadenze e priorità, e interagisci con un LLM (Qwen via Ollama) che può creare, aggiornare ed eliminare task attraverso linguaggio naturale — il tutto **100% offline**, senza API cloud.
+Un task manager Kanban potenziato da un assistente AI locale. Gestisci progetti e attività, monitora scadenze e priorità, e interagisci con un LLM (qwen2.5:1.5b-Instruct via Ollama) che può creare, aggiornare ed eliminare task attraverso linguaggio naturale — il tutto **100% offline**, senza API cloud.
 
 ## Funzionalità
 
@@ -47,10 +47,10 @@ cp .env.example .env
 Assicurati che Ollama sia in esecuzione, poi:
 
 ```bash
-ollama pull qwen3.5:2b
+ollama pull qwen2.5:1.5b-Instruct
 ```
 
-> Il modello occupa circa 2 GB su disco. Puoi usarne uno diverso aggiornando `OLLAMA_MODEL` nel file `.env`.
+> Il modello occupa circa 1 GB su disco. Puoi usarne uno diverso aggiornando `OLLAMA_MODEL` nel file `.env`.
 
 ## Popola il database (opzionale)
 
@@ -105,7 +105,7 @@ ai-task-manager/
 | UI | Streamlit |
 | Database | MongoDB + GridFS |
 | AI agent | LangGraph + LangChain |
-| LLM locale | Ollama — qwen3.5:2b |
+| LLM locale | Ollama — qwen2.5:1.5b-Instruct |
 | Modelli dati | Pydantic v2 |
 | Grafici | Plotly |
 | Test | pytest |

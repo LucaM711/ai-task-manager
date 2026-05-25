@@ -1,5 +1,5 @@
 """
-Costruzione dell'AI Agent: ChatOllama (qwen3.5:2b locale) + tool + memoria persistente.
+Costruzione dell'AI Agent: ChatOllama (qwen2.5:1.5b-Instruct locale) + tool + memoria persistente.
 
 La memoria conversazionale è gestita dal checkpointer `MongoDBSaver` di
 langgraph-checkpoint-mongodb, che persiste i checkpoint nelle collezioni
@@ -66,7 +66,7 @@ def _build_agent():
         temperature=settings.llm_temperature,
         num_ctx=4096,  # finestra esplicita: serve per system prompt + 10 tool schemas + history
         num_predict=2048,  # default Ollama=128 tronca elenchi lunghi a metà
-        reasoning=False,  # disattiva il thinking mode di Qwen 3 (no <think>...</think>)
+        reasoning=False,  # disattiva il thinking mode (no <think>...</think>)
         timeout=120,  # 2 minuti: evita blocchi infiniti se Ollama è offline o lento
     )
 
